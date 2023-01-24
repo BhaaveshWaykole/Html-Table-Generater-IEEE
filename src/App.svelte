@@ -19,7 +19,11 @@
 	try {
 		const textarea = document.querySelector(".result_text");
 		await navigator.clipboard.writeText(textarea.value);
-		console.log('Text copied to clipboard');
+		let success = document.querySelector(".Success-Copy")
+		console.log("Copied")
+		success.innerHTML = "Copied Successfully!"
+		setTimeout(() =>
+		success.innerHTML = " ",4500)
 	} catch (err) {
 		console.error('Failed to copy text: ', err);
 	}
@@ -28,6 +32,7 @@
 
 <main>
 	<body>
+		<h1>HTML Code Generator</h1>
 		<form on:submit|preventDefault={handleSubmit}>
 			<div class="labels">
 				<label>
@@ -41,8 +46,10 @@
 			</div>
 			<div class="buttons">
 				<button class="btn" type="button" on:click={reset}>Reset</button>
-				<button class="btn" id="focus" type="button" on:click={display}>Display Code</button>
+				<button class="btn focus" type="button" on:click={display}>Display Code</button>
+				<button type="button" class="btn cpy-button focus" on:click={copyToClipboard}>Copy</button>
 			</div>
+			<div class = "Success-Copy"></div>
 		</form>
 		<table id="table">
 			<tr class="border">
@@ -60,13 +67,12 @@
 		</table>
 		<div class="result">
 			<textarea class="result_text" type="text" rows="5" />
-			<button type="button" class="btn cpy-button" on:click={copyToClipboard}>Copy</button>
 		</div>
 	</body>
 </main>
 
 <style>
-	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 
 	* {
 		margin: 0;
@@ -84,16 +90,23 @@
 		align-items: center;
 	}
 	form {
-		margin-top: 20%;
+		margin-top: 3.5%;
 	}
 	label {
 		margin-left: 50px;
 	}
-
+	h1{
+		background-color: black;
+		color: white;
+		margin-top: 10%;
+		border-radius: 10px;
+		padding: 0px 15px;
+	}
 	textarea {
 		margin-top: 20px;
 		height: 400px;
 		width: 400px;
+		border-radius: 10px;
 	}
 	.btn {
 		box-sizing: border-box;
@@ -121,7 +134,7 @@
 		display: flex;
 		gap: 10px;
 		justify-content: center;
-		margin-top: 50px;
+		margin-top: 30px;
 	}
 
 	.btn:hover {
@@ -129,23 +142,12 @@
 		cursor: pointer;
 	}
 
-	#focus:focus {
+	.focus:focus {
 		background: #12b76a;
 	}
 
-	th {
-		border: 1px solid #000;
-	}
-	td {
-		border: 1px solid #000;
-	}
-	tr {
-		border: 1px solid #000;
-	}
-	
-	.result {
-		display: flex;
-		align-items: flex-end;
-		gap: 10px;
+	.Success-Copy{
+		margin-top: 20px;
+		text-align: center;
 	}
 </style>
