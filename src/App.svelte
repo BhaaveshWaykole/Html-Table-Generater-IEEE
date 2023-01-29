@@ -94,6 +94,7 @@
 	}
 	label {
 		margin-left: 50px;
+		font-size: 25px;
 	}
 	h1{
 		background-color: black;
@@ -107,8 +108,12 @@
 		height: 400px;
 		width: 400px;
 		border-radius: 10px;
+		box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05),
+			0px 15px 30px rgba(0, 0, 0, 0.12);
 	}
 	.btn {
+		height : 50px;
+		width: 160px;
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: row;
@@ -121,6 +126,7 @@
 		border: 1px solid #0066ff;
 		border-radius: 8px;
 		color: #eeeeee;
+		font-size: 18px;
 	}
 
 	input {
@@ -129,6 +135,9 @@
 			0px 15px 30px rgba(0, 0, 0, 0.12);
 		border-radius: 8px;
 		padding-left: 5px;
+		height: 40px;
+		width: 200px;
+		font-size: 25px;
 	}
 	.buttons {
 		display: flex;
